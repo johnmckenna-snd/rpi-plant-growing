@@ -12,5 +12,5 @@ export const stopPump = () => {
 };
 
 export const unexportPump = () => {
-	return pump1.unexport();
+	pump1.unexport();
 };
