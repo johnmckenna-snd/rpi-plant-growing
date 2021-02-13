@@ -4,6 +4,10 @@ runPump();
 setTimeout(() => stopPump(), 5000);
 unexportPump();
 
+process.on('SIGINT', () => {
+	unexportPump();
+});
+
 process.on('exit', () => {
 	unexportPump();
 });
