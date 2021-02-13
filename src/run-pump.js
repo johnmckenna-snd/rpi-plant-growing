@@ -1,4 +1,6 @@
 import { Gpio } from 'onoff';
+import regeneratorRuntime from 'regenerator-runtime';
+
 const pump1 = new Gpio(26, 'out');
 
 export const runPump1 = async () => {
