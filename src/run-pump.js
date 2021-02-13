@@ -27,6 +27,11 @@ export const stopPump1 = async () => {
 		.then(value => pump1.write(1));
 };
 
-export const unexportPump1 = () => {
-	pump1.unexport();
+export const unexportPump1 = async () => {
+	try {
+		pump1.unexport();
+	} catch (e) {
+		stopPump1();
+		throw e;
+	}
 };
