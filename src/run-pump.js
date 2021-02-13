@@ -5,9 +5,10 @@ const pump1 = new Gpio(26, 'out');
 
 export const runPump1 = async () => {
 	try {
-		await pump1.read();
-		await pump1.write(0);
-		console.log('Pump 1 Running');
+		const pump1Value = await pump1.read();
+		console.log(pump1Value);
+		const result = await pump1.write(0);
+		console.log('Pump 1 Running', result);
 	} catch (e) {
 		throw e;
 	}
