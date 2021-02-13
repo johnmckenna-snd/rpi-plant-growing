@@ -6,15 +6,23 @@ const pump1 = new Gpio(26, 'out');
 export const runPump1 = async () => {
 	try {
 		const pump1Value = await pump1.read();
-		console.log(pump1Value);
-		const result = await pump1.write(0);
-		console.log('Pump 1 Running', result);
+		console.log('Current Value', pump1Value);
+		await pump1.write(0);
+		console.log('Pump 1 Running');
 	} catch (e) {
 		throw e;
 	}
 };
 
-export const stopPump1 = () => {
+export const stopPump1 = async () => {
+	try {
+		const pump1Value = await pump1.read();
+		console.log('Current Value', pump1Value);
+		await pump1.write(1);
+		console.log('Pump 1 Stopped');
+	} catch (e) {
+		throw e;
+	}
 	pump1.read()
 		.then(value => pump1.write(1));
 };
