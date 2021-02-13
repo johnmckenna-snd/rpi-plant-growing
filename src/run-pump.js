@@ -11,6 +11,6 @@ export const stopPump1 = () => {
 		.then(value => pump1.write(1));
 };
 
-export const unexportPump = () => {
+export const unexportPump1 = () => {
 	pump1.unexport();
 };
