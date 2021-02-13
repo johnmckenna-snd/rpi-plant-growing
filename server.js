@@ -7,8 +7,3 @@ process.on('SIGINT', () => {
 	stopPump();
 	unexportPump();
 });
-
-process.on('exit', () => {
-	stopPump();
-	unexportPump();
-});
