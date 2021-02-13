@@ -1,9 +1,9 @@
-import { runPump, stopPump, unexportPump } from './src/run-pump';
+import { runPump1, stopPump1, unexportPump1 } from './src/run-pump';
 
-runPump();
-setTimeout(() => stopPump(), 20000);
+runPump1();
+setTimeout(() => stopPump1(), 20000);
 
 process.on('SIGINT', () => {
-	stopPump();
-	unexportPump();
+	stopPump1();
+	unexportPump1();
 });
