@@ -5,4 +5,5 @@ setTimeout(() => stopPump1(), 2000);
 
 process.on('SIGINT', () => {
 	unexportPump1();
+	process.exit();
 });
