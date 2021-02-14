@@ -1,7 +1,7 @@
 import { Gpio } from 'onoff';
 import regeneratorRuntime from 'regenerator-runtime';
 
-const moistureSensor1 = new Gpio(2, 'in');
+const moistureSensor1 = new Gpio(4, 'in');
 
 export const getMoistureSensor1 = async () => {
 	try {
