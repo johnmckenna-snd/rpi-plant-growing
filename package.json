@@ -12,7 +12,7 @@
     "build": "npm run clean && npm run build-server && npm run build-src",
     "lint": "eslint --quiet server.js  && eslint --quiet src/**",
     "start": "node build/server.js",
-		"deploybuild": "npm run build && scp -r /Users/johnmckenna/_proj/rpi/rpi-plant-growing/build pi@10.0.0.134:/home/pi/_proj/rpi-plant-growing/build"
+    "deploybuild": "npm run build && scp -r /Users/johnmckenna/_proj/rpi/rpi-plant-growing/build pi@10.0.0.134:/home/pi/_proj/rpi-plant-growing"
   },
   "author": "john mckenna",
   "license": "MIT",
@@ -25,6 +25,9 @@
     "nodemon": "^2.0.7"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "onoff": "^6.0.1",
     "regenerator-runtime": "^0.13.7"
   }

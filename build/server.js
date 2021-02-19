@@ -16,7 +16,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 (0, _runPump.runPump1)();
 setTimeout(function () {
   return (0, _runPump.stopPump1)();
-}, 4000);
+}, 16000);
 (0, _getMoistureLevel.getMoistureSensor1)();
 process.on('SIGINT', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime["default"].mark(function _callee() {
   return _regeneratorRuntime["default"].wrap(function _callee$(_context) {
