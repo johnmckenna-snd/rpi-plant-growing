@@ -3,7 +3,7 @@ import { getMoistureSensor1 } from './src/get-moisture-level';
 import regeneratorRuntime from 'regenerator-runtime';
 
 runPump1();
-setTimeout(() => stopPump1(), 2000);
+setTimeout(() => stopPump1(), 4000);
 getMoistureSensor1();
 
 process.on('SIGINT', async () => { // for ctrl + c
