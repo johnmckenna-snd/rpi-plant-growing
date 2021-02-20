@@ -2,11 +2,13 @@ import { Gpio } from 'onoff';
 import regeneratorRuntime from 'regenerator-runtime';
 
 const pump1 = new Gpio(26, 'out');
+const pump2 = new Gpio(20, 'out');
+const pump3 = new Gpio(21, 'out');
 
 export const runPump1 = async () => {
 	try {
 		const pump1Value = await pump1.read();
-		console.log('Current Value', pump1Value);
+		console.log('Pump1 Current Value', pump1Value);
 		await pump1.write(0);
 		console.log('Pump 1 Running');
 	} catch (e) {
@@ -17,7 +19,7 @@ export const runPump1 = async () => {
 export const stopPump1 = async () => {
 	try {
 		const pump1Value = await pump1.read();
-		console.log('Current Value', pump1Value);
+		console.log('Pump1 Current Value', pump1Value);
 		await pump1.write(1);
 		console.log('Pump 1 Stopped');
 	} catch (e) {
