@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.runPump1 = void 0;
+exports.runPump2 = void 0;
 
 var _express = _interopRequireDefault(require("express"));
 
@@ -17,8 +17,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var router = _express["default"].Router();
 
-exports.runPump1 = router;
-router.get('/runPump1', /*#__PURE__*/function () {
+exports.runPump2 = router;
+router.get('/runPump2', /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {
     var timeToRun, sleep;
     return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -35,7 +35,7 @@ router.get('/runPump1', /*#__PURE__*/function () {
 
             _context.prev = 2;
             _context.next = 5;
-            return (0, _runPump.runPump1)();
+            return (0, _runPump.runPump2)();
 
           case 5:
             _context.next = 7;
@@ -43,17 +43,17 @@ router.get('/runPump1', /*#__PURE__*/function () {
 
           case 7:
             _context.next = 9;
-            return (0, _runPump.stopPump1)();
+            return (0, _runPump.stopPump2)();
 
           case 9:
-            res.send("pump1 Ran for ".concat(timeToRun, " seconds"));
+            res.send("pump2 Ran for ".concat(timeToRun, " seconds"));
             _context.next = 16;
             break;
 
           case 12:
             _context.prev = 12;
             _context.t0 = _context["catch"](2);
-            res.send("pump1 run unsucessful with error ".concat(_context.t0));
+            res.send("pump2 run unsucessful with error ".concat(_context.t0));
             throw new Error(_context.t0);
 
           case 16:

@@ -1,19 +1,19 @@
 import express from 'express';
-import { runPump1, stopPump1 } from '../src/run-pump';
+import { runPump3, stopPump3 } from '../src/run-pump';
 const router = express.Router();
 
-router.get('/runPump1', async (req, res) => {
+router.get('/runPump3', async (req, res) => {
 	const timeToRun = req.query.seconds;
 	const sleep = (milliseconds) => new Promise(resolve => setTimeout(resolve, milliseconds));
 	try {
-		await runPump1();
+		await runPump3();
 		await sleep(timeToRun * 1000);
-		await stopPump1();
-		res.send(`pump1 Ran for ${timeToRun} seconds`);
+		await stopPump3();
+		res.send(`pump3 Ran for ${timeToRun} seconds`);
 	} catch (e) {
-		res.send(`pump1 run unsucessful with error ${e}`);
+		res.send(`pump3 run unsucessful with error ${e}`);
 		throw new Error(e);
 	}
 });
 
-export { router as runPump1 };
+export { router as runPump3 };

@@ -51,7 +51,7 @@ process.on('SIGINT', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRu
 
         case 2:
           _context.next = 4;
-          return (0, _runPump.unexportPump1)();
+          return (0, _runPump.unexportPumps)();
 
         case 4:
           process.exit();

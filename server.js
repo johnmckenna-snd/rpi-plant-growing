@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import { runPump1, stopPump1, unexportPump1 } from './src/run-pump';
+import { runPump1, stopPump1, unexportPumps } from './src/run-pump';
 import { getMoistureSensor1 } from './src/get-moisture-level';
 import regeneratorRuntime from 'regenerator-runtime';
 import router from './routes/index';
@@ -22,13 +22,10 @@ app.get('/health', (req, res) => {
 });
 
 // pump currently calibrated to 1/4 cup per second
-runPump1();
-setTimeout(() => stopPump1(), 16000);
-getMoistureSensor1();
 
 process.on('SIGINT', async () => { // for ctrl + c
 	await stopPump1();
-	await unexportPump1();
+	await unexportPumps();
 	process.exit();
 });
 
