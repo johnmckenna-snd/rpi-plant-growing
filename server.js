@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import { runPump1, stopPump1, unexportPumps } from './src/run-pump';
+import { stopPump1, stopPump2, stopPump3, unexportPumps } from './src/run-pump';
 import { getMoistureSensor1 } from './src/get-moisture-level';
 import regeneratorRuntime from 'regenerator-runtime';
 import router from './routes/index';
@@ -21,15 +21,22 @@ app.get('/health', (req, res) => {
 	res.end('Healthy!');
 });
 
-// pump currently calibrated to 1/4 cup per second
+// need to get state of relays right
+stopPump1();
+stopPump2();
+stopPump3();
+
+getMoistureSensor1();
 
 process.on('SIGINT', async () => { // for ctrl + c
 	await stopPump1();
+	await stopPump2();
+	await stopPump3();
 	await unexportPumps();
 	process.exit();
 });
 
 app.listen(port, (e) => {
 	if (e) throw Error(`couldn't start server on port: ${port}`);
-	console.log(`Hello, and welcome to the TEST AGGREGATROR! Listening on port: ${port}`);
+	console.log(`Hello, and welcome to some wholesome Raspberry Pi Plant Growing! Listening on port: ${port}`);
 });

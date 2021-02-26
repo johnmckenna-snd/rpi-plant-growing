@@ -34,12 +34,11 @@ app.get('/health', function (req, res) {
     'Content-Type': 'text/plain'
   });
   res.end('Healthy!');
-}); // pump currently calibrated to 1/4 cup per second
+}); // need to get state of relays right
 
-(0, _runPump.runPump1)();
-setTimeout(function () {
-  return (0, _runPump.stopPump1)();
-}, 16000);
+(0, _runPump.stopPump1)();
+(0, _runPump.stopPump2)();
+(0, _runPump.stopPump3)();
 (0, _getMoistureLevel.getMoistureSensor1)();
 process.on('SIGINT', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime["default"].mark(function _callee() {
   return _regeneratorRuntime["default"].wrap(function _callee$(_context) {
@@ -51,12 +50,20 @@ process.on('SIGINT', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRu
 
         case 2:
           _context.next = 4;
-          return (0, _runPump.unexportPumps)();
+          return (0, _runPump.stopPump2)();
 
         case 4:
+          _context.next = 6;
+          return (0, _runPump.stopPump3)();
+
+        case 6:
+          _context.next = 8;
+          return (0, _runPump.unexportPumps)();
+
+        case 8:
           process.exit();
 
-        case 5:
+        case 9:
         case "end":
           return _context.stop();
       }
